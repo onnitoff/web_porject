@@ -81,3 +81,22 @@ function bodyUnLock() {
 
 
 /* COUNTER */
+let buttonCountPlus = document.getElementById("buttonCountPlus");
+let buttonCountMinus = document.getElementById("buttonCountMinus");
+let count = document.getElementById("buttonCountNumber");
+let count2 = document.getElementById("num");
+let number = 1;
+
+buttonCountPlus.onclick = function() {
+    if (number <= 9) {
+        number++;
+        count.innerHTML = number;
+    }
+};
+
+buttonCountMinus.onclick = function() {
+   if (number >= 2) {
+       number--;
+       count.innerHTML = number;
+    }
+};

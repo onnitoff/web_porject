@@ -1477,7 +1477,7 @@ textarea[type~="text"] {
     transition: all 0.5s ease 0s;
 }
 
-.popup.open  {
+.popup.open {
     visibility: visible;
     opacity: 1;
 }
@@ -1485,6 +1485,7 @@ textarea[type~="text"] {
 body.lock {
     overflow: hidden;
 }
+
 .popup.open .popup__content {
     transform: translate(0px, 0px);
     opacity: 1;
@@ -1498,6 +1499,7 @@ body.lock {
     top: 0;
     left: 0;
 }
+
 .popup__body {
     min-height: 100%;
     display: flex;
@@ -1505,6 +1507,7 @@ body.lock {
     justify-content: center;
     padding: 30px 10px;
 }
+
 .popup__content {
     background-color: #eee;
     color: #000;
@@ -1515,6 +1518,7 @@ body.lock {
     opacity: 0;
     transform: translate(0px, -100%);
 }
+
 .popup__close {
     position: absolute;
     right: 10px;
@@ -1523,11 +1527,11 @@ body.lock {
     text-decoration: none;
     color: #000;
 }
+
 .popup__title {
     font-size: 40px;
     text-align: center;
     margin-bottom: 20px
+}
 
-}
-.popup__text {
-}
+.popup__text {}
