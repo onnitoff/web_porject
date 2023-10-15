@@ -1532,6 +1532,8 @@ body.lock {
 
 .popup__content {
     background-color: #eee;
+    display: flex;
+    flex-direction: column;
     color: #000;
     max-width: 800px;
     padding: 20px;
@@ -1539,6 +1541,9 @@ body.lock {
     transition: all 0.5s ease 0s;
     opacity: 0;
     transform: translate(0px, -100%);
+}
+.popup__content a {
+    text-align: center;
 }
 
 .popup__close {
@@ -1557,3 +1562,10 @@ body.lock {
 }
 
 .popup__text {}
+
+
+.status {
+    display: block;
+    padding-top: 20px;
+    color: red;
+  }

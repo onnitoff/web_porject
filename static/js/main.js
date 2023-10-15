@@ -1,3 +1,61 @@
+/* VALIDATION */
+const form = document.querySelectorAll('form'),
+          inputs = document.querySelectorAll('input'),
+          phoneInputs = document.querySelectorAll('input[id="number"]');
+   phoneInputs.forEach(item => {
+        item.addEventListener('input', () => {
+            item.value = item.value.replace(/\D/, '');
+        });
+    });
+    
+    const message = {
+        loading: 'Загрузка...',
+        success: 'Спасибо! Скоро мы с вами свяжемся',
+        failure: 'Что-то пошло не так...'
+    };
+
+    const postData = async (url, data) => {
+        document.querySelector('.status').textContent = message.loading;
+        let res = await fetch(url, {
+            method: "POST",
+            body: data
+        });
+
+        return await res.text();
+    };
+
+    const clearInputs = () => {
+        inputs.forEach(item => {
+            item.value = '';
+        });
+    };
+
+    form.forEach(item => {
+        item.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // неполучилось сделать модалку на возврат инфы с сервера..
+            // road = добавить a + id button новую модалку id="popup_3"
+            // let statusMessage = document.querySelector('.status-message');
+            let statusMessage = document.createElement('div');
+            statusMessage.classList.add('status');
+            item.appendChild(statusMessage);
+
+            const formData = new FormData(item);
+            console.log("check");
+            postData('server.php', formData)
+                .then(res => {
+
+                    statusMessage.textContent = message.success;
+                })
+                .catch(() => statusMessage.textContent = message.failure)
+                .finally(() => {
+                    clearInputs();
+                    setTimeout(() => {
+                        statusMessage.remove();
+                    }, 5000);
+                });
+        });
+    });
 /*
     MODALS
 */
@@ -5,6 +63,7 @@
 const popupLinks = document.querySelectorAll('.popup-link'); // получение всех popup
 const body = document.querySelector('body'); // получаем body чтобы блокировать скрол
 const lockPadding = document.querySelectorAll('.lock-padding');
+const input = document.querySelector('.phone');
 
 let unlock = true; // переменная для исключения двойных нажатий
 
@@ -31,6 +90,18 @@ if (popupCloseIcon.length > 0) {
             popupClose(el.closest('.popup'));
             e.preventDefault();
         });
+    }
+}
+
+const popupCloseBeforeSend = document.querySelectorAll('.button_close-popup');
+if(popupCloseBeforeSend.length > 0 && input.value.length == 0) {
+    for (let index = 0; index < popupCloseBeforeSend.length; index++) {
+        const el = popupCloseBeforeSend[index];
+            el.addEventListener('click', (e) => {
+                popupClose(el.closest('.popup'));
+                e.preventDefault();
+            });
+        
     }
 }
 
@@ -130,3 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // вызываем функцию countdownTimer каждую секунду
     timerId = setInterval(countdownTimer, 1000);
 });
+
+
+
+

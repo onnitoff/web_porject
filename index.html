@@ -143,7 +143,7 @@
                                             <div id="buttonCountNumber" class="count_2">1</div>
                                             <a id="buttonCountPlus" class="count__mark" href="#1">+</a>
                                         </div>
-                                        <a class="button-page1Right__button" href="#1">Добавить в корзину</a>
+                                        <a href="#popup_2" class="button-page1Right__button popup-link" >Добавить в корзину</a>
                                     </div>
                                     <div class="page1-right__text">
                                         <div class="text-page1Right__item">Вес: 260 г.</div>
@@ -188,7 +188,7 @@
                                         <div class="item-page2_price-old">10.9$</div>
                                         <div class="item-page2_price-new">7.9$</div>
                                     </div>
-                                    <a class="item-page2__button" href="#1">Добавить в корзину</a>
+                                    <a class="item-page2__button popup-link" href="#popup_2">Добавить в корзину</a>
                                 </div>
                             </div>
 
@@ -200,7 +200,7 @@
                                         <div class="item-page2_price-old">7.5$</div>
                                         <div class="item-page2_price-new">5.5$</div>
                                     </div>
-                                    <a class="item-page2__button" href="#1">Добавить в корзину</a>
+                                    <a class="item-page2__button popup-link" href="#popup_2">Добавить в корзину</a>
                                 </div>
                             </div>
 
@@ -212,7 +212,7 @@
                                         <div class="item-page2_price-old">8.5$</div>
                                         <div class="item-page2_price-new">5.5$</div>
                                     </div>
-                                    <a class="item-page2__button" href="#1">Добавить в корзину</a>
+                                    <a class="item-page2__button popup-link" href="#popup_2">Добавить в корзину</a>
                                 </div>
                             </div>
                         </div>
@@ -377,11 +377,31 @@
                 <a href="#" class="popup__close close-popup">X</a>
                 <div class="popup__title">Обратный звонок</div>
                 <form class="page5__form">
-                    <input class="input__page5" placeholder="Телефон" id="number" type="text">
+                    <input class="input__page5 phone" placeholder="Телефон" id="number" type="text">
                     <textarea class="textarea__page5" name="message" id="message" placeholder="Дополнительная информация"
                         type="text"></textarea>
-                    <button class="button__page5">Отправить</button>
+                    <button class="button__page5"  name="submit" type="submit">Отправить</button>
                 </form>
+            </div>
+        </div>
+     </div>
+
+     <div id="popup_2" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <div class="popup__title">Заказ добавлен в корзину!</div>
+                <button class="button__page5 button_close-popup" name="submit" type="submit">Ок</button>
+
+            </div>
+        </div>
+     </div>
+
+     <div id="popup_3" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <div class="popup__title status-message">Ваше сообщение отправлено!</div>
+                <button class="button__page5 button_close-popup" name="submit" type="submit">Ок</button>
+
             </div>
         </div>
      </div>
